@@ -1,0 +1,6 @@
+use_frameworks!
+target 'AttributedStyle_Tests' do
+  pod 'AttributedStyle', :path => '../'
+  
+  
+end
