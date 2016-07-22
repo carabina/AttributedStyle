@@ -1,0 +1,6 @@
+framework module AttributedStyle {
+  umbrella header "AttributedStyle-umbrella.h"
+
+  export *
+  module * { export * }
+}

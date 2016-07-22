@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import AttributedStyle
+@testable import AttributedStyle
 
 class Tests: XCTestCase {
     
@@ -15,7 +15,16 @@ class Tests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
+        let attributedStyle = AttributedStyle().font(UIFont.systemFontOfSize(21, weight: UIFontWeightLight))
+        let parapraphStyle = ParagraphStyle().lineBreakMode(.ByTruncatingMiddle)
+        let attributes = attributedStyle.paragraphStyle(parapraphStyle.style).foregroundColor(.grayColor()).attributes
+        
+        let label = UILabel()
+        label.attributedText = NSAttributedString(string: "Attribute it!", attributes: attributes)
+        // or
+        label.attributedText = NSAttributedString(string: "Attribute it!", attributes: AttributedStyle().font(UIFont.systemFontOfSize(21, weight: UIFontWeightLight)).foregroundColor(UIColor.darkGrayColor()).paragraphStyle(ParagraphStyle().alignment(.Center).style).attributes)
+        
+        print("attrs: \(attributes)")
         XCTAssert(true, "Pass")
     }
     
