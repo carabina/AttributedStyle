@@ -5,8 +5,23 @@
 [![License](https://img.shields.io/cocoapods/l/AttributedStyle.svg?style=flat)](http://cocoapods.org/pods/AttributedStyle)
 [![Platform](https://img.shields.io/cocoapods/p/AttributedStyle.svg?style=flat)](http://cocoapods.org/pods/AttributedStyle)
 
+## Description
+- easy setup and reusing
+- almost each attribute as function
+- compact view
+
 ## Example
 
+```swift
+let attributedStyle = AttributedStyle().font(UIFont.systemFontOfSize(21, weight: UIFontWeightLight))
+let parapraphStyle = ParagraphStyle().lineBreakMode(.ByTruncatingMiddle)
+let attributes = attributedStyle.paragraphStyle(parapraphStyle.style).foregroundColor(.grayColor()).attributes
+
+let label = UILabel()
+label.attributedText = NSAttributedString(string: "Attribute it!", attributes: attributes)
+// or
+label.attributedText = NSAttributedString(string: "Attribute it!", attributes: AttributedStyle().font(UIFont.systemFontOfSize(21, weight: UIFontWeightLight)).foregroundColor(UIColor.darkGrayColor()).paragraphStyle(ParagraphStyle().alignment(.Center).style).attributes)
+```
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
